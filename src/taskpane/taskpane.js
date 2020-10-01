@@ -15,6 +15,7 @@ Office.onReady(info => {
     document.getElementById("sideload-msg").style.display = "none";
     document.getElementById("app-body").style.display = "flex";
     document.getElementById("run").onclick = run;
+    document.getElementById("login").onclick = openLoginDialog
   }
 });
 
@@ -38,4 +39,14 @@ export async function run() {
   } catch (error) {
     console.error(error);
   }
+}
+var dialog = null;
+
+function openDialog() {
+  Office.context.ui.displayDialogAsync(
+    'https://localhost:3000/login.html',
+    {height: 45, width: 55},
+
+    // TODO2: Add callback parameter.
+  );
 }
